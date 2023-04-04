@@ -24,26 +24,18 @@ public class Main {
     }
 
     public static String makeDecisionOnAgeAndTemperature(int age, int temperature) {
-        if (isMiddleAge(age, temperature) || isYoungAge(age, temperature) || isSeniorAge(age, temperature)) {
+        if ((age >= 20 && age <= 45) && (temperature >= -20 && temperature <= 30)) {
+            return "Можно идти гулять";
+        } else if (age < 20 && (temperature >= 0 && temperature <= 28)) {
+            return "Можно идти гулять";
+        } else if (age > 45 && (temperature >= -10 && temperature <= 25)) {
             return "Можно идти гулять";
         } else {
             return "Оставайтесь дома";
         }
     }
 
-    private static boolean isSeniorAge(int age, int temperature) {
-        return age > 45 && (temperature >= -10 && temperature <= 25);
-    }
-
-    private static boolean isYoungAge(int age, int temperature) {
-        return age < 20 && (temperature >= 0 && temperature <= 28);
-    }
-
-    private static boolean isMiddleAge(int age, int temperature) {
-        return (age >= 20 && age <= 45) && (temperature >= -20 && temperature <= 30);
-    }
-
-    public static int generateRandomAge(){
+    public static int generateRandomAge() {
         return new Random().nextInt(100);
     }
 }

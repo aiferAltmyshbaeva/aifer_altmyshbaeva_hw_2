@@ -24,11 +24,15 @@ public class Main {
     }
 
     public static String makeDecisionOnAgeAndTemperature(int age, int temperature) {
-        if (isMiddleAge(age, temperature) || isYoungAge(age, temperature) || isSeniorAge(age, temperature)) {
+        if (isComfortTemperatureForPromenad(age, temperature)) {
             return "Можно идти гулять";
         } else {
             return "Оставайтесь дома";
         }
+    }
+
+    private static boolean isComfortTemperatureForPromenad(int age, int temperature) {
+        return isMiddleAge(age, temperature) || isYoungAge(age, temperature) || isSeniorAge(age, temperature);
     }
 
     private static boolean isSeniorAge(int age, int temperature) {
